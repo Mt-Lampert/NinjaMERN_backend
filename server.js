@@ -19,6 +19,8 @@ app.use((req, res, next) => {
   next();
 })
 
+// will work only for urls like http://localhost:4000/api/workouts/42, for instance
+// not for http://localhost:4000/42; that route is not defined yet.
 app.use('/api/workouts', workouts);
 
 
