@@ -1,6 +1,7 @@
 require("dotenv").config();
 // import {express} from "express"
 const express = require("express");
+const workouts = require('./routes/workouts')
 
 const { appendFile } = require("fs");
 const { clearScreenDown } = require("readline");
@@ -18,11 +19,15 @@ app.use((req, res, next) => {
   next();
 })
 
+app.use('/api/workouts', workouts);
+
+
 app.get('/', (req, res) => {
   res.json({
     "message": "Es laeuft!"
   })
 })
+
 
 
 // Server starten!
